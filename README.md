@@ -1,13 +1,9 @@
 # MountainCar using gym library
 
-## Introduction
-In this getting started with LCD module tutorial, we are going to learn interfacing an LCD module with  Arduino  Uno.
+This project contains the code to train an agent to solve the OpenAI Gym Mountain Car environment with Q-Learning.
+## The Mountain Car Environment
 
-![LCD1602][lcd]
-
-First connect the ground of Arduino to the VSS of the LCD.
-
-
+[![Mountain-Car.png](https://i.postimg.cc/1Xr2DbTT/Mountain-Car.png)](https://postimg.cc/QKVf3Yjk)
 
 
 
