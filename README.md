@@ -27,10 +27,17 @@ At each step, the car receives a reward based on the state it reached after that
 - Reward of -1 is awarded if the position of the agent is less than 0.5.
 
 
+## Q-Learning
 
+Run the following line to render a pre-trained agent with Q-learning.
+```
+python3 car.py
+```
+The agent was trained for 3500 episodes. Its Q-values are saved in the file 'mountain_car.pkl'
 
-
-
+ hyperparameters:
+- learning rate (alpha) = 0.1
+- discount factor (gamma) = 0.95
 
 
 
