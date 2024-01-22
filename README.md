@@ -1,5 +1,5 @@
 # MountainCar using gym library
-------------------------------------------------------------
+
 ## Introduction
 In this getting started with LCD module tutorial, we are going to learn interfacing an LCD module with  Arduino  Uno.
 
