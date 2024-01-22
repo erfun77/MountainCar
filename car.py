@@ -12,13 +12,13 @@ SHOW_EVERY = 2000
 
 DISCRETE_OS_SIZE = [20, 20]
 discrete_os_win_size = (env.observation_space.high - env.observation_space.low) / DISCRETE_OS_SIZE
-q_table = np.random.uniform(low=-2, high=0, size=(DISCRETE_OS_SIZE + [env.action_space.n]))
+#q_table = np.random.uniform(low=-2, high=0, size=(DISCRETE_OS_SIZE + [env.action_space.n])) #Comment this line if you are using Q-Values file
 
 
 ########## IN CASE YOU ARE NOT TRAINING THE MODEL##############
-# f = open('mountain_car.pkl', 'rb')
-# q_table = pickle.load(f)
-# f.close()
+f = open('mountain_car.pkl', 'rb')
+q_table = pickle.load(f)
+f.close()
 ###############################################################
 
 def get_discrete_state(state):
@@ -51,21 +51,20 @@ for episodes in range(EPISODES):
       rand = random.uniform(0, 1)
 
       ###########IN CASE YOU WANT TO SAVE YOUR TRAINED MODEL##############
-      if rand > epsilon:
-        action = np.argmax(q_table[discrete_state])
-      else:
-        action = env.action_space.sample()
+      # if rand > epsilon:
+      #   action = np.argmax(q_table[discrete_state])
+      # else:
+      #   action = env.action_space.sample()
       ####################################################################
         
-      #action = np.argmax(q_table[discrete_state])  # if you are using Q-values file uncomment this line
+      action = np.argmax(q_table[discrete_state])  # if you are using Q-Values file uncomment this line
 
       new_state, reward, done, _ , _ = env.step(action)
       new_discrete_state = get_discrete_state(new_state)
 
-      # comment this line if you are using Q-values file
-    
-      q_table[discrete_state + (action,)] = q_table[discrete_state + (action,)] * (1 - LEARNING_RATE) + \
-        LEARNING_RATE * (reward + DISCOUNT * np.max(q_table[new_discrete_state]))
+      #Comment this line if you are using Q-Values file
+      #q_table[discrete_state + (action,)] = q_table[discrete_state + (action,)] * (1 - LEARNING_RATE) + \
+        #LEARNING_RATE * (reward + DISCOUNT * np.max(q_table[new_discrete_state]))
 
       discrete_state = new_discrete_state
       rewards_current_episode += reward
@@ -85,9 +84,9 @@ for episodes in range(EPISODES):
 env.close()
 
 ##############IN CASE YOU WANT TO SAVE YOUR TRAINED MODEL##############
-f = open('mountain_car.pkl','wb')
-pickle.dump(q_table, f)
-f.close()
+# f = open('mountain_car.pkl','wb')
+# pickle.dump(q_table, f)
+# f.close()
 ######################################################################
 
 
