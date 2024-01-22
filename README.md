@@ -11,7 +11,7 @@ The environment is two-dimensional and it consists of a car between two hills. T
 There are two variables that determine the current state of the environment.
 
 - The car position on the track, from -1.2 to 0.6
-- The car velocity, from -0.07 to 0.07. Negative for left, and positive for right.
+- The car velocity, from -0.07 to 0.07. 
 
 ## Actions:
 There are 3 discrete deterministic actions:
@@ -30,7 +30,7 @@ Run the following line to render a pre-trained agent with Q-learning.
 ```
 python3 car.py
 ```
-The agent was trained for 3500 episodes. Its Q-values are saved in the file 'mountain_car.pkl'
+The agent was trained for 3500 episodes. Its Q-values are saved in the file 'mountain_car.pkl'.
 
  hyperparameters:
 - learning rate (alpha) = 0.1
