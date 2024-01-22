@@ -14,18 +14,15 @@ There are two variables that determine the current state of the environment.
 - The car velocity, from -0.07 to 0.07. Negative for left, and positive for right.
 
 ## Actions:
-The car can take one of three different actions:
+There are 3 discrete deterministic actions:
 
-- Accelerate to the left
-- Don't accelerate
-- Accelerate to the right.
+- 0: Accelerate to the left
+- 1: Don't accelerate
+- 2: Accelerate to the right
 
 ## Reward:
-At each step, the car receives a reward based on the state it reached after that action:
 
-- Reward of 0 is awarded if the agent reached the flag (position = 0.5) on top of the mountain.
-- Reward of -1 is awarded if the position of the agent is less than 0.5.
-
+The goal is to reach the flag placed on top of the right hill as quickly as possible, as such the agent is penalised with a reward of -1 for each timestep.
 
 ## Q-Learning
 
@@ -40,14 +37,5 @@ The agent was trained for 3500 episodes. Its Q-values are saved in the file 'mou
 - discount factor (gamma) = 0.95
 
 
-
-
-
-
-
-
-
-[lcd]:https://hackster.imgix.net/uploads/attachments/924857/img_0510_auRlYlz8t3.JPG?auto=compress%2Cformat&w=680&h=510&fit=max
-[des]:https://hackster.imgix.net/uploads/attachments/924840/screen_shot_2019-06-13_at_1_17_47_pm_XX6RqU7T6j.png?auto=compress%2Cformat&w=680&h=510&fit=max
-[circuit1]:https://hackster.imgix.net/uploads/attachments/924841/lcd.jpg?auto=compress%2Cformat&w=680&h=510&fit=max
-[circuit2]:https://hackster.imgix.net/uploads/attachments/924842/screen_shot_2019-06-13_at_1_18_55_pm_DhHtccXH09.png?auto=compress%2Cformat&w=680&h=510&fit=max
+## Reference
+OpenAI MountainCar-v0 retrieved from https://gymnasium.farama.org/environments/classic_control/mountain_car/#mountain-car
